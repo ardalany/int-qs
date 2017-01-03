@@ -29,7 +29,7 @@ public class TripleFixedLengthStack {
         
         _stacks = new String[3 * _stackSize];
         
-        _stackTops = new int[]{ 0, _stackSize, (2 * _stackSize) };
+        _stackTops = new int[]{ -1, _stackSize - 1, (2 * _stackSize) - 1 };
     }
     
     /**
@@ -44,13 +44,13 @@ public class TripleFixedLengthStack {
         }
         
         // is the stack full?
-        if(_stackTops[stackID] > ((stackID * _stackSize) - 1)){
+        if(_stackTops[stackID - 1] == ((stackID * _stackSize) - 1)){
             return false;
         }
         else{
-            _stacks[_stackTops[stackID]] = value;
-            _stackTops[stackID]++;
-            
+            _stackTops[stackID - 1]++;
+            _stacks[_stackTops[stackID - 1]] = value;
+
             return true;
         }
     }
@@ -67,14 +67,14 @@ public class TripleFixedLengthStack {
         
 
         // is the stack empty?
-        if(_stackTops[stackID] == ((stackID - 1) * _stackSize)){
+        if(_stackTops[stackID - 1] == ((stackID - 1) * _stackSize) - 1){
             return null;
         }
         else
         {
-            String value = _stacks[_stackTops[stackID]];
-            _stacks[_stackTops[stackID]] = null;
-            _stackTops[stackID]--;
+            String value = _stacks[_stackTops[stackID - 1]];
+            _stacks[_stackTops[stackID - 1]] = null;
+            _stackTops[stackID - 1]--;
             return value;
         }
     }

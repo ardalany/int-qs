@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(ZohhakRunner.class)
 public class TripleFixedLengthStackTest {
-    /*@TestWith({
+    @TestWith({
         "1",
         "2",
         "3"
@@ -34,14 +34,79 @@ public class TripleFixedLengthStackTest {
         
         // Assert
         assertTrue(result);
-    }*/
+    }
     
     @TestWith({
-        "2, 1,   3",
-        "3, 5,   8"
+        "1",
+        "2",
+        "3"
     })
-    public void should_add_numbers(int addend1, int addend2, int result) {
-
-        assertEquals(result, addend1 + addend2);
+    public void push_returns_false_a_stack_is_full(int stackID){
+        // Set up
+        TripleFixedLengthStack stack=new TripleFixedLengthStack(2);
+        stack.push("a", stackID);
+        stack.push("b", stackID);
+        
+        // Execute
+        boolean result = stack.push("c", stackID);
+        
+        // Assert
+        assertFalse(result);
+    }
+    
+    @TestWith({
+        "1",
+        "2",
+        "3"
+    })
+    public void pop_returns_top_node(int stackID){
+        // Set up
+        TripleFixedLengthStack stack=new TripleFixedLengthStack(2);
+        stack.push("a", stackID);
+        stack.push("b", stackID);
+        
+        // Execute
+        String node1 = stack.pop(stackID);
+        String node2 = stack.pop(stackID);
+        
+        // Assert
+        assertEquals("b", node1);
+        assertEquals("a", node2);
+    }
+    
+    @TestWith({
+        "1",
+        "2",
+        "3"
+    })
+    public void pop_returns_null_when_stack_is_empty(int stackID){
+        // Set up
+        TripleFixedLengthStack stack=new TripleFixedLengthStack(2);
+        
+        // Execute
+        String node = stack.pop(stackID);
+        
+        // Assert
+        assertEquals(null, node);
+    }
+    
+    @TestWith({
+        "1",
+        "2",
+        "3"
+    })
+    public void pop_returns_null_when_all_elements_are_popped(int stackID){
+        // Set up
+        TripleFixedLengthStack stack=new TripleFixedLengthStack(2);
+        stack.push("a", stackID);
+        stack.push("b", stackID);
+        stack.pop(stackID);
+        stack.pop(stackID);
+        
+        // Execute
+        String node = stack.pop(stackID);
+        
+        // Assert
+        assertEquals(null, node);
     }
 }
