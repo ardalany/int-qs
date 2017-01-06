@@ -6,7 +6,7 @@
 package Stack;
 
 import LinkedList.LinkedListNode;
-import java.util.EmptyStackException;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,5 +43,34 @@ public class Stack<T> {
         } else {
             return _top.data;
         }
+    }
+    
+    @Override
+    public String toString(){
+        ArrayList<String> nodeStrings = new ArrayList<>();
+        
+        LinkedListNode<T> currentNode = _top;
+        
+        while(currentNode != null){
+            nodeStrings.add(currentNode.data.toString());
+            
+            currentNode = currentNode.next;
+        }
+        
+        return String.join(",", nodeStrings);
+    }
+    
+    public int getCount(){
+        int count = 0;
+        
+        LinkedListNode<T> currentNode = _top;
+        
+        while(currentNode != null){
+            count++;
+            
+            currentNode = currentNode.next;
+        }
+        
+        return count;
     }
 }
