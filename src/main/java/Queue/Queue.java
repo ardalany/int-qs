@@ -39,4 +39,12 @@ public class Queue<T> {
         
         return null;
     }
+    
+    public T peek(){
+        if(_head != null){
+            return _head.data;
+        }
+        
+        return null;
+    }
 }

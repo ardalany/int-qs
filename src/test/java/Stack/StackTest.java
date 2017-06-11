@@ -42,4 +42,29 @@ public class StackTest {
         // Assert
         assertEquals(3, count);
     }
+    
+    @Test
+    public void isEmpty_returns_true_when_stack_is_empty(){
+        // Set up
+        Stack<Integer> stack=new Stack<>();
+        
+        // Execute
+        boolean result = stack.isEmpty();
+        
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+    public void isEmpty_returns_false_when_stack_is_not_empty(){
+        // Set up
+        Stack<Integer> stack=new Stack<>();
+        stack.push(1);
+        
+        // Execute
+        boolean result = stack.isEmpty();
+        
+        // Assert
+        assertFalse(result);
+    }
 }

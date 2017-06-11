@@ -73,4 +73,8 @@ public class Stack<T> {
         
         return count;
     }
+    
+    public boolean isEmpty(){
+        return (_top == null);
+    }
 }
