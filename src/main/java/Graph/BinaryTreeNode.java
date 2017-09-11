@@ -15,6 +15,7 @@ public class BinaryTreeNode<T> {
     private BinaryTreeNode<T> _left;
     private BinaryTreeNode<T> _right;
     public T data;
+    private boolean _visited = false;
 
     public BinaryTreeNode<T> getLeft() {
         return _left;
@@ -38,5 +39,13 @@ public class BinaryTreeNode<T> {
         if (right != null) {
             right.parent = this;
         }
+    }
+    
+    public boolean isVisited(){
+        return _visited;
+    }
+    
+    public void setVisited(boolean value){
+        _visited = value;
     }
 }
