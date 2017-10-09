@@ -5,6 +5,8 @@
  */
 package Graph;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ardalan
@@ -47,5 +49,19 @@ public class BinaryTreeNode<T> {
     
     public void setVisited(boolean value){
         _visited = value;
+    }
+    
+    public ArrayList<BinaryTreeNode<T>> getChildren(){
+        ArrayList<BinaryTreeNode<T>> children = new ArrayList<>();
+        
+        if(_left != null){
+            children.add(_left);
+        }
+        
+        if(_right != null){
+            children.add(_right);
+        }
+        
+        return children;
     }
 }
