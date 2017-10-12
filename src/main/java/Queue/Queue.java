@@ -47,4 +47,8 @@ public class Queue<T> {
         
         return null;
     }
+    
+    public boolean isEmpty(){
+        return (peek() == null);
+    }
 }
