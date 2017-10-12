@@ -64,4 +64,19 @@ public class BinaryTreeNode<T> {
         
         return children;
     }
+    
+    public int getHeight(BinaryTreeNode<T> root){
+        int height = 0;
+
+        if(root != null && !root.getChildren().isEmpty()){
+            height = 1;
+            
+            int leftSubTreeHeight = getHeight(root.getLeft());
+            int rightSubTreeHeight = getHeight(root.getRight());
+
+            height += Math.max(leftSubTreeHeight, rightSubTreeHeight);
+        }
+        
+        return height;
+    }
 }

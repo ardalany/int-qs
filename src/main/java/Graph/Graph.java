@@ -9,7 +9,7 @@ import LinkedList.*;
 import java.util.ArrayList;
 
 /**
- *
+ * This is a directed graph where each node has a unique value
  * @author Ardalan
  */
 public class Graph<T> {
@@ -24,7 +24,7 @@ public class Graph<T> {
         int index = 0;
         
         while(index < adjacencyList.size() && !verticeFound){
-            LinkedList<T> vertice = adjacencyList.get((index));
+            LinkedList<T> vertice = adjacencyList.get(index);
             
             if(vertice.head.data.equals(vertice1)){
                 vertice.appendToTail(vertice2);
@@ -39,6 +39,16 @@ public class Graph<T> {
             vertice.appendToTail(vertice2);
             adjacencyList.add(vertice);
         }
+    }
+    
+    public LinkedListNode<T> getAdjacentVertices(T vertice){
+        for(LinkedList<T> v : adjacencyList){
+            if(v.head.data.equals(vertice)){
+                return v.head.next;
+            }
+        }
+        
+        return null;
     }
     
     @Override
