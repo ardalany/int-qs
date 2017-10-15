@@ -6,6 +6,8 @@
 package Graph;
 
 import LinkedList.*;
+import Queue.Queue;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
@@ -13,53 +15,74 @@ import java.util.ArrayList;
  * @author Ardalan
  */
 public class Graph<T> {
-    private final ArrayList<LinkedList<T>> adjacencyList;
+    private final HashMap<T, LinkedList<Vertex<T>>> adjacencyList;
     
     public Graph(){
-        adjacencyList = new ArrayList<>();
+        adjacencyList = new HashMap<>();
     }
     
-    public void addEdge(T vertice1, T vertice2){
-        boolean verticeFound = false;
-        int index = 0;
+    public void addEdge(Vertex<T> from, Vertex<T> to){
+        LinkedList<Vertex<T>> fromVertex = adjacencyList.get(from.data);
         
-        while(index < adjacencyList.size() && !verticeFound){
-            LinkedList<T> vertice = adjacencyList.get(index);
-            
-            if(vertice.head.data.equals(vertice1)){
-                vertice.appendToTail(vertice2);
-                verticeFound = true;
-            }
-            
-            index++;
+        if(fromVertex == null){
+            fromVertex = new LinkedList<>(from);
+            adjacencyList.put(from.data, fromVertex);
         }
         
-        if(!verticeFound){
-            LinkedList<T> vertice = new LinkedList<>(vertice1);
-            vertice.appendToTail(vertice2);
-            adjacencyList.add(vertice);
-        }
+        fromVertex.appendToTail(to);
     }
     
-    public LinkedListNode<T> getAdjacentVertices(T vertice){
-        for(LinkedList<T> v : adjacencyList){
-            if(v.head.data.equals(vertice)){
-                return v.head.next;
-            }
+    public LinkedListNode<Vertex<T>> getAdjacentVertices(T vertexData){
+        LinkedList<Vertex<T>> vertex = adjacencyList.get(vertexData);
+        
+        if(vertex != null){
+            return vertex.head.next;
         }
         
         return null;
+    }
+    
+    public boolean hasRoute(T from, T to){
+        boolean routeFound = false;
+        LinkedList<Vertex<T>> fromVertex = adjacencyList.get(from);
+        
+        if(fromVertex != null){
+            Queue<Vertex<T>> verticesToVisit = new Queue<>();
+            verticesToVisit.enqueue(fromVertex.head.data);
+            
+            while(!verticesToVisit.isEmpty() && !routeFound){
+                Vertex<T> currentVertex = verticesToVisit.dequeue();
+                
+                if(currentVertex.data == to){
+                    routeFound = true;
+                } else {
+                    currentVertex.visited = true;
+                    
+                    LinkedListNode<Vertex<T>> adjacentVertex = getAdjacentVertices(currentVertex.data);
+                    
+                    while(adjacentVertex != null){
+                        if(!adjacentVertex.data.visited) {
+                            verticesToVisit.enqueue(adjacentVertex.data);
+                        }
+                        
+                        adjacentVertex = adjacentVertex.next;
+                    }
+                }
+            }
+        }
+        
+        return routeFound;
     }
     
     @Override
     public String toString(){
         StringBuilder output = new StringBuilder();
         
-        for(LinkedList<T> vertice : adjacencyList){
-            LinkedListNode<T> node = vertice.head;
+        for(LinkedList<Vertex<T>> vertice : adjacencyList.values()){
+            LinkedListNode<Vertex<T>> node = vertice.head;
             ArrayList<String> vertices = new ArrayList<>();
             while(node != null){
-                vertices.add(node.data.toString());
+                vertices.add(node.data.data.toString());
                 node = node.next;
             }
             

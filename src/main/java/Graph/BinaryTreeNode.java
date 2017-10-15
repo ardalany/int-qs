@@ -19,6 +19,15 @@ public class BinaryTreeNode<T> {
     public T data;
     private boolean _visited = false;
 
+    public BinaryTreeNode(T data){
+        this.data = data;
+    }
+    
+    public BinaryTreeNode(){
+        
+    }
+    
+    
     public BinaryTreeNode<T> getLeft() {
         return _left;
     }

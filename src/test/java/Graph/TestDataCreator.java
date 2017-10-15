@@ -73,4 +73,68 @@ public class TestDataCreator {
 
         return tree;
     }
+    
+    public static Graph<Integer> createDirectedGraphWithLoops(){
+        Graph<Integer> graph = new Graph<>();
+        Vertex<Integer> vertice1 = new Vertex(1);
+        Vertex<Integer> vertice2 = new Vertex(2);
+        Vertex<Integer> vertice3 = new Vertex(3);
+        Vertex<Integer> vertice4 = new Vertex(4);
+        
+        graph.addEdge(vertice1, vertice2);
+        graph.addEdge(vertice1, vertice3);
+        graph.addEdge(vertice2, vertice1);
+        graph.addEdge(vertice3, vertice1);
+        graph.addEdge(vertice2, vertice4);
+        
+        return graph;
+    }
+    
+    public static Graph<Integer> createDirectedGraphWithoutLoops(){
+        Graph<Integer> graph = new Graph<>();
+        Vertex<Integer> vertice1 = new Vertex(1);
+        Vertex<Integer> vertice2 = new Vertex(2);
+        Vertex<Integer> vertice3 = new Vertex(3);
+        Vertex<Integer> vertice4 = new Vertex(4);
+        
+        graph.addEdge(vertice1, vertice2);
+        graph.addEdge(vertice1, vertice3);
+        graph.addEdge(vertice4, vertice2);
+        
+        return graph;
+    }
+    
+    public static BinarySearchTree createTestBST(){
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.root.data = 10;
+
+        // Node 4
+        BinaryTreeNode<Integer> node4 = new BinaryTreeNode<>();
+        node4.data = 4;
+
+        // Node 7
+        BinaryTreeNode<Integer> node7 = new BinaryTreeNode<>();
+        node7.data = 7;
+
+        // Node 6
+        BinaryTreeNode<Integer> node6 = new BinaryTreeNode<>();
+        node6.data = 6;
+        node6.setLeft(node4);
+        node6.setRight(node7);
+
+        tree.root.setLeft(node6);
+
+        // Node 21
+        BinaryTreeNode<Integer> node21 = new BinaryTreeNode<>();
+        node21.data = 21;
+
+        // Node 15
+        BinaryTreeNode<Integer> node15 = new BinaryTreeNode<>();
+        node15.data = 15;
+        node15.setRight(node21);
+
+        tree.root.setRight(node15);
+
+        return tree;
+    }
 }

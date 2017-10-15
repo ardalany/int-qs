@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="Queue.AnimalShelter.AnimalShelterQueueTest" time="2.112" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="Queue.AnimalShelter.AnimalShelterQueueTest" time="2.174" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -61,8 +61,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="DequeueAny_returns_cat_when_cat_is_queued_before_dog" time="1.086"/>
-  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="Enqueue_adds_dog_to_dog_queue" time="0.001"/>
-  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="DequeueAny_returns_dog_when_dog_is_queued_before_cat" time="1.008"/>
+  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="DequeueAny_returns_cat_when_cat_is_queued_before_dog" time="1.164"/>
+  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="Enqueue_adds_dog_to_dog_queue" time="0.003"/>
+  <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="DequeueAny_returns_dog_when_dog_is_queued_before_cat" time="1.001"/>
   <testcase classname="Queue.AnimalShelter.AnimalShelterQueueTest" name="Enqueue_adds_cat_to_cat_queue" time="0"/>
 </testsuite>

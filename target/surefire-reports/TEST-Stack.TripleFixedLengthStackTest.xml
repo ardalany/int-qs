@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="Stack.TripleFixedLengthStackTest" time="0.031" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="Stack.TripleFixedLengthStackTest" time="0.073" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -61,19 +61,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_false_a_stack_is_full [1]" time="0.015"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_false_a_stack_is_full [1]" time="0.022"/>
   <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_false_a_stack_is_full [2]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_false_a_stack_is_full [3]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [1]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [2]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [3]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_stack_is_empty [1]" time="0"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_false_a_stack_is_full [3]" time="0.001"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [1]" time="0.001"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [2]" time="0.001"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_top_node [3]" time="0.001"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_stack_is_empty [1]" time="0.002"/>
   <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_stack_is_empty [2]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_stack_is_empty [3]" time="0"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_stack_is_empty [3]" time="0.002"/>
   <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_all_elements_are_popped [1]" time="0"/>
   <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_all_elements_are_popped [2]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_all_elements_are_popped [3]" time="0"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="pop_returns_null_when_all_elements_are_popped [3]" time="0.002"/>
   <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_true_when_an_item_is_pushed_to_stack [1]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_true_when_an_item_is_pushed_to_stack [2]" time="0"/>
-  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_true_when_an_item_is_pushed_to_stack [3]" time="0"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_true_when_an_item_is_pushed_to_stack [2]" time="0.001"/>
+  <testcase classname="Stack.TripleFixedLengthStackTest" name="push_returns_true_when_an_item_is_pushed_to_stack [3]" time="0.001"/>
 </testsuite>

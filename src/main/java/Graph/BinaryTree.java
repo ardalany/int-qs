@@ -10,7 +10,7 @@ package Graph;
  * @author Ardalan
  */
 public class BinaryTree<T> {
-    public final BinaryTreeNode<T> root;
+    public BinaryTreeNode<T> root;
     
     public BinaryTree(){
         root = new BinaryTreeNode();

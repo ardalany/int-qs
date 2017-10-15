@@ -62,7 +62,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="Stack.StackTest" name="toString_returns_comma_delimited_values_of_stack_nodes" time="0"/>
-  <testcase classname="Stack.StackTest" name="getCount_returns_correct_count" time="0"/>
+  <testcase classname="Stack.StackTest" name="getCount_returns_correct_count" time="0.001"/>
   <testcase classname="Stack.StackTest" name="isEmpty_returns_false_when_stack_is_not_empty" time="0"/>
   <testcase classname="Stack.StackTest" name="isEmpty_returns_true_when_stack_is_empty" time="0"/>
 </testsuite>
