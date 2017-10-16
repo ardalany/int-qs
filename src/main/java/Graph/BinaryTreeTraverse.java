@@ -5,6 +5,7 @@
  */
 package Graph;
 
+import LinkedList.LinkedList;
 import Queue.Queue;
 import java.util.ArrayList;
 
@@ -55,9 +56,6 @@ public class BinaryTreeTraverse<T> {
         _nodeList = new ArrayList<>();
         Queue<BinaryTreeNode<T>> nodesToVisit = new Queue<>();
         
-        //_nodeList.add(tree.root.data);
-        //tree.root.setVisited(true);
-        
         nodesToVisit.enqueue(tree.root);
         
         while(!nodesToVisit.isEmpty()){
@@ -81,6 +79,12 @@ public class BinaryTreeTraverse<T> {
         }
         
         return _nodeList;
+    }
+    
+    public ArrayList<LinkedList<T>> getNodesPerDepth(BinaryTree<T> tree){
+        ArrayList<LinkedList<T>> list = new ArrayList<LinkedList<T>>();
+        
+        return list;
     }
 }
 
