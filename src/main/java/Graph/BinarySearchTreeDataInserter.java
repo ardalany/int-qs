@@ -7,44 +7,31 @@ package Graph;
 public class BinarySearchTreeDataInserter {
     /**
      * Inserts an ascending sorted array of values into a binary search tree with minimal height
-     * @param sortedValue 
+     * @param sortedValues an array of integers, sorted in ascending order
      */
     public BinarySearchTree insert(int[] sortedValues){
         BinarySearchTree tree = new BinarySearchTree();
         
-        tree.root = getRoot(sortedValues);
+        tree.root = getRoot(sortedValues, 0, sortedValues.length - 1);
         
         return tree;
     }
     
-    private BinaryTreeNode<Integer> getRoot(int[] sortedValues){
-        BinaryTreeNode<Integer> rootNode = new BinaryTreeNode<>();
-        if(sortedValues.length == 1) {
-            rootNode.data = sortedValues[0];
+    private BinaryTreeNode<Integer> getRoot(int[] sortedValues, int startIndex, int endIndex){
+        if(startIndex > endIndex) {
+            return null;
         }
         else {
-            int middleIndex = sortedValues.length / 2;
+            BinaryTreeNode<Integer> rootNode = new BinaryTreeNode<>();
+            int middleIndex = (endIndex + startIndex) / 2;
+            
             rootNode.data = sortedValues[middleIndex];
             
-            int[] leftHalfValues = new int[middleIndex];
-            for(int i = 0; i < middleIndex; i++) {
-                leftHalfValues[i] = sortedValues[i];
-            }
+            rootNode.setLeft(getRoot(sortedValues, startIndex, middleIndex - 1));
             
-            rootNode.setLeft(getRoot(leftHalfValues));
+            rootNode.setRight(getRoot(sortedValues, middleIndex + 1, endIndex));
             
-            int rightHalfValuesCount = sortedValues.length - middleIndex - 1;
-            
-            if(rightHalfValuesCount > 0){
-                int[] rightHalfValues = new int[rightHalfValuesCount];
-                for(int i = 0; i < rightHalfValuesCount; i ++) {
-                    rightHalfValues[i] = sortedValues[middleIndex + i + 1];
-                }
-
-                rootNode.setRight(getRoot(rightHalfValues));
-            }
-        }
-        
-        return rootNode;
+            return rootNode;
+        } 
     }
 }
