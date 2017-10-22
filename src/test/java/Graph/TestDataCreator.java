@@ -137,4 +137,41 @@ public class TestDataCreator {
 
         return tree;
     }
+    
+    /**
+     * This binary tree is not a BST.
+     */
+    public static BinaryTree<Integer> createTestBinaryTree() {
+        BinaryTree<Integer> tree = new BinaryTree<>();
+        tree.root.data = 5;
+
+        // Node 2
+        BinaryTreeNode<Integer> node2 = new BinaryTreeNode<>();
+        node2.data = 2;
+
+        // Node 6
+        BinaryTreeNode<Integer> node6 = new BinaryTreeNode<>();
+        node6.data = 6;
+
+        // Node 3
+        BinaryTreeNode<Integer> node3 = new BinaryTreeNode<>();
+        node3.data = 3;
+        node3.setLeft(node2);
+        node3.setRight(node6);
+
+        tree.root.setLeft(node3);
+
+        // Node 8
+        BinaryTreeNode<Integer> node8 = new BinaryTreeNode<>();
+        node8.data = 8;
+
+        // Node 7
+        BinaryTreeNode<Integer> node7 = new BinaryTreeNode<>();
+        node7.data = 7;
+        node7.setRight(node8);
+
+        tree.root.setRight(node7);
+
+        return tree;
+    }
 }

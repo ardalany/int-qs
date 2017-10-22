@@ -81,10 +81,5 @@ public class BinaryTreeTraverse<T> {
         return _nodeList;
     }
     
-    public ArrayList<LinkedList<T>> getNodesPerDepth(BinaryTree<T> tree){
-        ArrayList<LinkedList<T>> list = new ArrayList<LinkedList<T>>();
-        
-        return list;
-    }
 }
 
